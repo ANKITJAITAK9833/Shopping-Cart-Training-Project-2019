@@ -1,6 +1,6 @@
 
 function createCard(item) {
-    return  $(`
+    return $(`
 <div class="col-sm-4" style=" margin-bottom: 28px ;">
 <div class="card text-center" style=" box-shadow: 1px 1px 3px #888; border: 1px solid gray; vpadding: 10px;" >
 <div class="center" >
@@ -21,7 +21,7 @@ function createCard(item) {
 }
 function refreshList() {
     console.log('running refreshList products fetching')
-    const loggedInUser = window.localStorage.getItem('username');
+    const loggedInUser = window.localStorage.getItem('userName');
 
     $.get(`/carts/${loggedInUser}`, (data) => {
         $('#userCart').empty()
@@ -38,9 +38,7 @@ function refreshList() {
                     productList.append(createCard(item));
                     total = total + item.product.price * item.quantity;
 
-                    // $('#userCart').append(
-                    //     `<tr><td>${item.product.name}</td>  <td>${item.product.price}</td>  <td><input type='submit' value='X' onclick='removeFromCart(${item.product.id})'></td></tr>`
-                    // )
+
                 } else {
                     flag = true
                 }
@@ -70,12 +68,12 @@ function refreshList() {
 }
 refreshList()
 function removeFromCart(id) {
-    let useremail = window.localStorage.getItem('username')
+    let userEmail = window.localStorage.getItem('userName')
     console.log(id + " from remove from cart")
     $.post('/carts/delete',
         {
             productId: id,
-            userEmail: useremail
+            userEmail: userEmail
         }).then((data) => {
             if (data.success) {
                 refreshList()

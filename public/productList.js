@@ -26,36 +26,27 @@ function createCard(item) {
 function refreshList() {
   console.log('running refreshList products fetching')
   $.get('/products', (data) => {
-    // $('#productList').empty()
     console.log(data);
     let productList = $('#productList')
     productList.empty()
     for (let product of data) {
-
       productList.append(createCard(product));
-      // $('#productList').append(
-      //   `<tr>
-      //          <td>${product.name}</td>  <td>${product.price}</td> <td>${product.vendor}</td>  <td><input type='submit' value='+' onclick='addToCart(${product.id})'></td>
-      //          </tr>`
-      // )
-
     }
-
-  })
+   })
 }
 refreshList()
 function addToCart(productId) {
   console.log("runing js of addt cart func" + productId)
-  let useremail = window.localStorage.getItem('username')
+  let userEmail = window.localStorage.getItem('userName')
   $.post('/carts',
     {
       productId: productId,
-      userEmail: useremail
+      userEmail: userEmail
     }),
     (data) => {
       if (data.success) {
         window.alert("ITEM ADDED TO YOUR CART")
-        refreshList() 
+        refreshList()
       } else {
         alert('Some error occurred')
       }

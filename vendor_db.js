@@ -18,48 +18,48 @@ const Vendors = db.define('vendor', {
   }
 })
 
-const Products=db.define('product',{
-  name:{
-    type:Sequelize.STRING,
-    allowNull:false, 
+const Products = db.define('product', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
   },
-  price:{
-   type:Sequelize.FLOAT,
-   allowNull:false
+  price: {
+    type: Sequelize.FLOAT,
+    allowNull: false
   },
-  quantity:{
-   type:Sequelize.INTEGER,
-   allowNull:false
+  quantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   },
-  vendor:{
-    type:Sequelize.STRING,
-    allowNull:false
+  vendor: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
-}) 
+})
 
-const Users=db.define('user',{
-  name:{
-     type:Sequelize.STRING,
-    allowNull:false,
+const Users = db.define('user', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
   },
-  email:{
-    type:Sequelize.STRING,
-    primaryKey:true,
-    allowNull:false
+  email: {
+    type: Sequelize.STRING,
+    primaryKey: true,
+    allowNull: false
   },
-  password:{
-     type:Sequelize.STRING,
-     allowNull:false,
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
   }
 
-}) 
+})
 
-const Cart=db.define('cart',{
-   quantity:{
-     type:Sequelize.STRING,
-     allowNull:false
-   }
-  }) 
+const Cart = db.define('cart', {
+  quantity: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+})
 Products.hasMany(Cart)
 Cart.belongsTo(Products)
 Users.hasMany(Cart)
@@ -67,5 +67,5 @@ Cart.belongsTo(Users)
 
 
 module.exports = {
-  db, Vendors ,Products,Users,Cart
+  db, Vendors, Products, Users, Cart
 }

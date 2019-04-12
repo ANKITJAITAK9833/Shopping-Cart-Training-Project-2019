@@ -56,21 +56,6 @@ app.post('/vendors/:id', async (req, res) => {
         })
       res.send({ success: true })
     })
-
-    // console.log(findId+"asdf")
-    // if(findId){ 
-    //     Products.destroy({
-    //       where:{
-    //           vendor:findId.name
-    //       }
-    //     }),
-    //     Vendors.destroy({
-    //       where: {
-    //          id:id
-    //          } 
-    //     })
-    //   res.send({success: true})
-    // }
   } catch (e) {
     res.send({ success: false, err: e.message })
   }
@@ -193,19 +178,9 @@ app.post('/carts', async (req, res) => {
 
     }).catch((err) => {
       console.log("error" + err.message[0]);
-      //  const result = /*await*/ Cart.create({
-      //                   productId:req.body.productId,
-      //                   userEmail:req.body.userEmail,
-      //                   quantity:1
-      //                   })
     })
     console.log(' add user CART post clicked')
     console.log("quantity " + newQuantity)
-    // const result = await Cart.create({
-    // productId:req.body.productId,
-    // userEmail:req.body.userEmail,
-    // quantity:newQuantity
-
     res.send({ success: true })
   } catch (e) {
     res.send({ success: false, err: e.message })
@@ -214,9 +189,9 @@ app.post('/carts', async (req, res) => {
 
 
 app.get('/carts/:id', async (req, res) => {
-  const  cartItems  =  await  Cart.findAll({
+  const cartItems = await Cart.findAll({
     where: {
-         userEmail: req.params.id
+      userEmail: req.params.id
     },
     include:
     [
@@ -234,21 +209,19 @@ app.post('/carts/delete', async (req, res) => {
   const id = req.body.productId
   console.log(id + "from post remove cart")
   try {
-    // const findId = Cart.findOne({ where: { productId: id },{userEmail:req.body.userEmail} })
-    // if (findId) {
-      console.log(id)
-       Cart.destroy({
-        where: {
-          productId: id,
-          userEmail:req.body.userEmail
-         }
-      })
-      res.send({ success: true })
-    }
-   catch (e) {
+    console.log(id)
+    Cart.destroy({
+      where: {
+        productId: id,
+        userEmail: req.body.userEmail
+      }
+    })
+    res.send({ success: true })
+  }
+  catch (e) {
     res.send({ success: false, err: e.message })
   }
-})  
+})
 
 
 
@@ -257,19 +230,19 @@ app.post('/carts/deleteNull', async (req, res) => {
   const id = req.body.productId
   console.log(id + "from post remove cart")
   try {
-       Cart.destroy({
-        where: {
-          productId: null
-         }
-      })
-      res.send({ success: true })
-    }
-   catch (e) {
+    Cart.destroy({
+      where: {
+        productId: null
+      }
+    })
+    res.send({ success: true })
+  }
+  catch (e) {
     res.send({ success: false, err: e.message })
   }
 })
 
-const PORT=process.env.PORT||5500
+const PORT = process.env.PORT || 5500
 db.sync()
   .then(() => {
     app.listen(PORT)
