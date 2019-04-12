@@ -13,7 +13,7 @@ $('#loginUser').click(() => {
       (data) => {
                if (data.success) {
                           alert("user Exists")
-                          window.location="/productList.html"
+                          window.location="/index.html"
                     }else {
                            alert('Some error occurred')
                           }
