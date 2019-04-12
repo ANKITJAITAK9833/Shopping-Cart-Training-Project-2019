@@ -54,7 +54,8 @@ function addToCart(productId) {
     }),
     (data) => {
       if (data.success) {
-        refreshList()
+        window.alert("ITEM ADDED TO YOUR CART")
+        refreshList() 
       } else {
         alert('Some error occurred')
       }
