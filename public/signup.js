@@ -11,7 +11,7 @@ $('#addUser').click(() => {
       (data) => {
                if (data.success) {
                           alert("adddd user to db")
-                          window.location="http://localhost:5500/productList.html"
+                          window.location="/productList.html"
                     }else {
                            alert('Some error occurred')
                           }
