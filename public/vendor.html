@@ -8,14 +8,22 @@
     <title>Document</title>
 </head>
 <body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/login.html">LOGIN</a>
+                <a class="nav-item nav-link active" href="/signup.html">SIGN UP <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/productList.html">SHOP</a>
+                <a class="nav-item nav-link" href="/index.html">ADD PRODUCT</a>
+            </div>
+        </div>
+    </nav>
   <div class="form-group">
     <label for="vendorName">VENDOR NAME</label>
     <input type="text" class="form-control" id="vendorName"  placeholder="Enter Name">
   </div>  
-  <input type="submit" id="addVendor" value="ADD VENDOR" class="btn btn-primary"></input>
+  <input type="submit" id="addVendor" value="ADD VENDOR" class="btn btn-primary"></input> <br><br>
 
-    <a href="product.html">ADD PRODUCT</a>  &emsp;
-    <a href="productList.html">GO TO SHOP</a>
     <ul id="vendorList">
     <li>sample data</li>
     </ul>

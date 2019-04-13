@@ -209,7 +209,6 @@ app.post('/carts/delete', async (req, res) => {
   const id = req.body.productId
   console.log(id + "from post remove cart")
   try {
-    console.log(id)
     Cart.destroy({
       where: {
         productId: id,

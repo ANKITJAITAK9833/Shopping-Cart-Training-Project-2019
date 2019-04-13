@@ -11,7 +11,17 @@
 </head>
 
 <body>
-    <a href="productList.html">BACK TO SHOPPING?</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/productList.html">BACK TO SHOP</a>
+                <a class="nav-item nav-link" href="/vendor.html">ADD VENDOR</a>
+                <a class="nav-item nav-link" href="/index.html">ADD PRODUCT</a>
+                <a class="nav-item nav-link active" href="/login.html">LOGOUT <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+    </nav>
+    <small id="emailHelp" class="form-text text-muted"> PLEASE MAKE SURE YOU ARE LOGGED IN TO ADD ITEMS TO CART</small>
 
     <div class="container">
         <div class="row" id="productList">
@@ -25,7 +35,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="userCart.js"></script>
-    &emsp; &emsp;<a href="login.html">LOGOUT</a>
 </body>
 
 </html>
